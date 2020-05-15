@@ -39,8 +39,6 @@ module.exports = {
 	],
 	/* Plugins to load before mounting the App */
 	plugins: [
-		{src: './plugins/infiniteloading.js', mode: 'client'},
-		// './plugins/infiniteloading.js',
 		"./plugins/font-awesome.js",
 		"./plugins/axiosRetry.js",
 		"./plugins/axios.js",

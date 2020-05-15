@@ -1,6 +1,5 @@
 <template>
 	<div class="table-section">
-        <script src="https://unpkg.com/vue-infinite-loading@^2/dist/vue-infinite-loading.js"></script>
 		<div class="content">
             <div class="table">
                 <div class="table-content">
@@ -13,7 +12,9 @@
                 </div>
                 <div class="article-content clear">
                     <v-article v-for="(data, index) in categoryList" :key="index" :class="{active: isActive === data.id || isActive === 'all'}" :data-type="data.id" :resources="data" />
-                    <infinite-loading spinner="spiral" @infinite="infiniteScroll"  ref="infiniteLoading"></infinite-loading>
+                    <no-ssr>
+                        <infinite-loading spinner="spiral" @infinite="infiniteScroll"  ref="infiniteLoading"></infinite-loading>
+                    </no-ssr>
                 </div>
             </div>
             <v-recommend />
@@ -24,11 +25,13 @@
 <script>
     import article from "~/components/article.vue";
     import recommend from "~/components/recommend.vue";
+    import InfiniteLoading from 'vue-infinite-loading';
 
 	export default {
         components: {
             vArticle: article,
-            vRecommend: recommend
+            vRecommend: recommend,
+            InfiniteLoading: InfiniteLoading
 		},
         data() {
             return {
