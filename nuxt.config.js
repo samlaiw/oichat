@@ -86,6 +86,9 @@ module.exports = {
 			}
 		]
 	},
+	server: {
+		port: 8888
+	},
 	/* Build configuration */
 	build: {
 		/* You can extend webpack config here */
