@@ -26,7 +26,7 @@ module.exports = {
 			{rel: "shortcut icon", type: "image/x-icon", href: "/favicon.png"}
 		]
 	},
-	/* Customize the progress-bar color*/
+	/* Customize the progress-bar color */
 	loading: { 
 		color: "#5e0b75",
 		height: "2px"
@@ -42,6 +42,7 @@ module.exports = {
 		"./plugins/font-awesome.js",
 		"./plugins/axiosRetry.js",
 		"./plugins/axios.js",
+		// "./plugins/fb-sdk.js",
 		"./plugins/swiper.js",
 		"./plugins/route.js"
 		// "./plugins/gTag.js"
