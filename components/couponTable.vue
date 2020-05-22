@@ -268,11 +268,7 @@
     @import '~/assets/css/global/config.scss';
     
     .coupon-table {
-        padding: 50px 0px;
-
-        @media screen and (max-width: 1024px) {
-            padding: 0px;
-        }
+        padding: 40px 0px;
 
         .content {            
             max-width: 1280px;
@@ -352,6 +348,8 @@
                     justify-content: space-between;
 
                     @media screen and (max-width: 960px) {
+                        justify-content: space-evenly;
+
                         &:after {
                             content: '';
                             flex: 0 0 30%;
