@@ -9,7 +9,7 @@
                     <div class="item" :class="{active: isActive === 'record'}" @click="changeSwitch" data-type="record">兌換紀錄</div>
                 </div>
                 <div class="login-reminder">立即<router-link to="login">登入</router-link>oichat會員，就有機會獲得免費英語親子線上課程</div>
-                <div class="coupon-content clear">
+                <div class="coupon-content">
                     <div class="coupon" v-for="(resources, index) in couponList" :key="index">
                         <div class="image">
                             <img data-src="~/assets/image/coupon/coming.jpg" :alt="resources.title" v-lazy-load>
@@ -18,10 +18,10 @@
                         <div class="point">所需積分：{{ resources.point }}</div>
                         <input type="button" value="兌換">
                     </div>
-                    <no-ssr>
-                        <infinite-loading spinner="spiral" @infinite="infiniteScroll"  ref="infiniteLoading"></infinite-loading>
-                    </no-ssr>
                 </div>
+                <no-ssr>
+                    <infinite-loading spinner="spiral" @infinite="infiniteScroll"  ref="infiniteLoading"></infinite-loading>
+                </no-ssr>
             </div>
         </div>
 	</div>
@@ -298,6 +298,10 @@
                         font-size: 40px;
                         font-weight: bold;
                         margin-bottom: 20px;
+
+                        @media screen and (max-width: 375px) {
+                            font-size: 30px;
+                        }
                     }
 
                     .item {
@@ -328,6 +332,14 @@
                     font-size: 26px;
                     margin: 20px 0px;
 
+                    @media screen and (max-width: 768px) {
+                        font-size: 22px;
+                    }
+
+                    @media screen and (max-width: 680px) {
+                        font-size: 18px;
+                    }
+
                     @media screen and (max-width: 414px) {
                         padding: 0px 10px;
                         font-size: 16px;
@@ -337,8 +349,14 @@
                 .coupon-content {
                     display: flex;
                     flex-wrap: wrap;
-                    justify-content: center;
                     justify-content: space-between;
+
+                    @media screen and (max-width: 960px) {
+                        &:after {
+                            content: '';
+                            flex: 0 0 30%;
+                        }
+                    }
 
                     .coupon {
                         flex: 0 0 24%;
@@ -351,6 +369,14 @@
                             flex: 0 0 30%;
                         }
 
+                        @media screen and (max-width: 620px) {
+                            flex: 0 0 45%;
+                        }
+
+                        @media screen and (max-width: 375px) {
+                            flex: 0 0 100%;
+                        }
+
                         .image {
                             margin-bottom: 5px;
                         }
@@ -360,6 +386,10 @@
                             margin: 10px 0px;
                             font-size: 18px;
                             font-weight: bold;
+
+                            @media screen and (max-width: 620px) {
+                                font-size: 16px;
+                            }
                         }
 
                         .point {
