@@ -2,6 +2,10 @@
 	<section class="container">
 		<v-vision />
 
+        <div class="banner">
+            <img data-src="~/assets/image/course/course.png" v-lazy-load>
+        </div>
+
         <div class="olkid-ad">
             <div class="content">
                 <div class="right-content clear">
@@ -121,10 +125,10 @@
 </script>
 
 <style lang="scss">
-	@import '~/assets/css/global/config.scss';
-
+    @import '~/assets/css/global/config.scss';
+    
     .olkid-ad {
-        padding: 50px 0px;
+        padding: 40px 0px;
 
         @media screen and (max-width: 960px) {
             padding: 20px 0px;

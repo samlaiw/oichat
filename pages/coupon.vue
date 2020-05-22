@@ -1,6 +1,11 @@
 <template>
   <section class="container">
       <v-vision />
+
+      <div class="banner">
+          <img data-src="~/assets/image/coupon/coupon.png" v-lazy-load>
+      </div>
+
       <coupon-table />
   </section>
 </template>
