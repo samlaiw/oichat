@@ -293,47 +293,26 @@
                 }
 
                 @media screen and (max-width: 768px) {
-                    width: 100%;
+                    width: 80%;
+                    margin-left: auto;
+                    margin-right: auto;
                 }
 
                 .title {
                     color: $minor_color;
                     font-size: 25px;
                     margin-bottom: 20px;
-
-                    @media screen and (max-width: 768px) {
-                        width: 80%;
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
                 }
 
                 .teacher-content {
-                    display: flex;
                     width: 100%;
-                    overflow-x: auto;
-
-                    @media screen and (max-width: 768px) {
-                        width: 90%;
-                        margin-left: 10%;
-
-                        &::after {
-                            content: '';
-                            width: 0px;
-                            padding: 1%;
-                        }
-                    }
 
                     .teacher {
-                        width: 80%;
-                        min-width: 280px;
-                        margin-right: 5%;
+                        display: block;
+                        width: 100%;
+                        margin-bottom: 5%;
                         border: 2px solid $minor_color;
                         border-radius: 5px;
-
-                        @media screen and (max-width: 414px) {
-                            min-width: 220px;
-                        }
 
                         .photo {
                             height: 0px;
