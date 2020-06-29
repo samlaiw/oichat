@@ -3,7 +3,7 @@
 		<div class="content">
             <div class="table">
                 <div class="table-content">
-                    <div class="title">積分兌換中心</div>
+                    <div class="title">兌換中心</div>
                     <div class="item" :class="{active: isActive === 'general'}" @click="changeSwitch" data-type="general">白銀獎勵(一般會員)</div>
                     <div class="item" :class="{active: isActive === 'sponsor'}" @click="changeSwitch" data-type="sponsor">黃金獎勵(贊助會員)</div>
                     <div class="item" :class="{active: isActive === 'record'}" @click="changeSwitch" data-type="record">兌換紀錄</div>
@@ -16,7 +16,8 @@
                         </div>
                         <div class="title">{{ resources.title }}</div>
                         <div class="point">所需積分：{{ resources.point }}</div>
-                        <input type="button" value="兌換">
+                        <input v-if="isActive != 'record'" type="button" value="兌換">
+                        <div v-if="isActive === 'record'" class="date">兌換日期：{{ resources.date }}</div>
                     </div>
                 </div>
                 <no-ssr>
@@ -41,121 +42,142 @@
                         couponId: '01',
                         image: 'coming.jpg',
                         title: '兒童英語線上課程 1 堂',
-                        point: '300'
+                        point: '300',
+                        date: '2020-01-20'
                     },
                     {
                         couponId: '02',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 2 堂',
-                        point: '500'
+                        point: '500',
+                        date: '2020-01-22'
                     },
                     {
                         couponId: '03',
                         image: './assets/image/coupon/coming.jpg',
                         title: '可愛兒童英語繪本',
-                        point: '700'
+                        point: '700',
+                        date: '2020-02-12'
                     },
                     {
                         couponId: '04',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 3 堂',
-                        point: '1100'
+                        point: '1100',
+                        date: '2020-03-26',
+                        date: '2020-03-26'
                     },
                     {
                         couponId: '01',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 1 堂',
-                        point: '300'
+                        point: '300',
+                        date: '2020-01-20'
                     },
                     {
                         couponId: '02',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 2 堂',
-                        point: '500'
+                        point: '500',
+                        date: '2020-01-22'
                     },
                     {
                         couponId: '03',
                         image: './assets/image/coupon/coming.jpg',
                         title: '可愛兒童英語繪本',
-                        point: '700'
+                        point: '700',
+                        date: '2020-02-12'
                     },
                     {
                         couponId: '04',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 3 堂',
-                        point: '1100'
+                        point: '1100',
+                        date: '2020-03-26'
                     },
                     {
                         couponId: '01',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 1 堂',
-                        point: '300'
+                        point: '300',
+                        date: '2020-01-20'
                     },
                     {
                         couponId: '02',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 2 堂',
-                        point: '500'
+                        point: '500',
+                        date: '2020-01-22'
                     },
                     {
                         couponId: '03',
                         image: './assets/image/coupon/coming.jpg',
                         title: '可愛兒童英語繪本',
-                        point: '700'
+                        point: '700',
+                        date: '2020-02-12'
                     },
                     {
                         couponId: '04',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 3 堂',
-                        point: '1100'
+                        point: '1100',
+                        date: '2020-03-26'
                     },
                     {
                         couponId: '01',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 1 堂',
-                        point: '300'
+                        point: '300',
+                        date: '2020-01-20'
                     },
                     {
                         couponId: '02',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 2 堂',
-                        point: '500'
+                        point: '500',
+                        date: '2020-01-22'
                     },
                     {
                         couponId: '03',
                         image: './assets/image/coupon/coming.jpg',
                         title: '可愛兒童英語繪本',
-                        point: '700'
+                        point: '700',
+                        date: '2020-02-12'
                     },
                     {
                         couponId: '04',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 3 堂',
-                        point: '1100'
+                        point: '1100',
+                        date: '2020-03-26'
                     },
                     {
                         couponId: '01',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 1 堂',
-                        point: '300'
+                        point: '300',
+                        date: '2020-01-20'
                     },
                     {
                         couponId: '02',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 2 堂',
-                        point: '500'
+                        point: '500',
+                        date: '2020-01-22'
                     },
                     {
                         couponId: '03',
                         image: './assets/image/coupon/coming.jpg',
                         title: '可愛兒童英語繪本',
-                        point: '700'
+                        point: '700',
+                        date: '2020-02-12'
                     },
                     {
                         couponId: '04',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 3 堂',
-                        point: '1100'
+                        point: '1100',
+                        date: '2020-03-26'
                     }
                 ],
                 isActive: 'general',
@@ -174,76 +196,90 @@
                 let _this = this;
                 
                 setTimeout(() => {
-                    let data = [
-                    {
+                    let data = [{
                         couponId: '01',
-                        image: './assets/image/coupon/coming.jpg',
+                        image: 'coming.jpg',
                         title: '兒童英語線上課程 1 堂',
-                        point: '300'
+                        point: '300',
+                        date: '2020-01-20'
                     },
                     {
                         couponId: '02',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 2 堂',
-                        point: '500'
+                        point: '500',
+                        date: '2020-01-22'
                     },
                     {
                         couponId: '03',
                         image: './assets/image/coupon/coming.jpg',
                         title: '可愛兒童英語繪本',
-                        point: '700'
+                        point: '700',
+                        date: '2020-02-12'
                     },
                     {
                         couponId: '04',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 3 堂',
-                        point: '1100'
-                    },{
+                        point: '1100',
+                        date: '2020-03-26',
+                        date: '2020-03-26'
+                    },
+                    {
                         couponId: '01',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 1 堂',
-                        point: '300'
+                        point: '300',
+                        date: '2020-01-20'
                     },
                     {
                         couponId: '02',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 2 堂',
-                        point: '500'
+                        point: '500',
+                        date: '2020-01-22'
                     },
                     {
                         couponId: '03',
                         image: './assets/image/coupon/coming.jpg',
                         title: '可愛兒童英語繪本',
-                        point: '700'
+                        point: '700',
+                        date: '2020-02-12'
                     },
                     {
                         couponId: '04',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 3 堂',
-                        point: '1100'
-                    },{
+                        point: '1100',
+                        date: '2020-03-26'
+                    },
+                    {
                         couponId: '01',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 1 堂',
-                        point: '300'
+                        point: '300',
+                        date: '2020-01-20'
                     },
                     {
                         couponId: '02',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 2 堂',
-                        point: '500'
+                        point: '500',
+                        date: '2020-01-22'
                     },
                     {
                         couponId: '03',
                         image: './assets/image/coupon/coming.jpg',
                         title: '可愛兒童英語繪本',
-                        point: '700'
+                        point: '700',
+                        date: '2020-02-12'
                     },
                     {
                         couponId: '04',
                         image: './assets/image/coupon/coming.jpg',
                         title: '兒童英語線上課程 3 堂',
-                        point: '1100'
+                        point: '1100',
+                        date: '2020-03-26'
                     }]
                     
                     if(_this.page <= 3) {
@@ -270,7 +306,7 @@
     .coupon-table {
         padding: 40px 0px;
 
-        .content {            
+        .content {
             max-width: 1280px;
             margin: auto;
 
@@ -392,6 +428,10 @@
 
                         .point {
                             margin: 5px 0px;
+                        }
+
+                        .date {
+                            margin: 5px 0px 10px 0px;
                         }
                         
                         input[type="button" ] {
