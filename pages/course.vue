@@ -126,7 +126,7 @@
 
 <style lang="scss">
     @import '~/assets/css/global/config.scss';
-    
+
     .olkid-ad {
         padding: 40px 0px;
 
@@ -190,7 +190,7 @@
 
                     .introduction {
                         padding: 5px;
-                        
+
                         .text {
                             line-height: 22px;
                             margin-bottom: 10px;
@@ -334,7 +334,7 @@
 
                         .introduction {
                             padding: 0px 5px;
-                            
+
                             .text {
                                 line-height: 22px;
                                 margin-bottom: 10px;

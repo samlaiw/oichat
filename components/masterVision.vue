@@ -11,9 +11,9 @@
                 <div class="line-two">親子</div>
                 <div class="line-three">討論站</div>
             </div>
-            <div class="search-content">
+            <!-- <div class="search-content">
                 <input type="text" class="search" placeholder="搜尋關鍵字(親子、教育、育兒、家庭)">
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -36,10 +36,13 @@
     .vision {
         width: 100%;
         text-align: center;
+        padding-top: 60px;
         padding-bottom: 20px;
 
         @media screen and (max-width: 1024px) {
-            padding: 20px 0px;
+            padding-top: 80px;
+            // padding-left:60px;
+
         }
 
         .content {
@@ -105,27 +108,27 @@
                 }
             }
 
-            .search-content {
-                width: 100%;
-                text-align: center;
-                
-                .search {
-                    width: 30%;
-                    padding: 10px;
-                    border-radius: 10px;
-                    border: 2px solid #707070;
+            // .search-content {
+            //     width: 100%;
+            //     text-align: center;
 
-                    @media screen and (max-width: 960px) {
-                        width: 80%;
-                        margin-top: 10px;
-                        border: 1px solid #707070;
-                    }
+            //     .search {
+            //         width: 30%;
+            //         padding: 10px;
+            //         border-radius: 10px;
+            //         border: 2px solid #707070;
 
-                    &:focus {
-                        outline : 0;
-                    }
-                }
-            }
+            //         @media screen and (max-width: 960px) {
+            //             width: 80%;
+            //             margin-top: 10px;
+            //             border: 1px solid #707070;
+            //         }
+
+            //         &:focus {
+            //             outline : 0;
+            //         }
+            //     }
+            // }
         }
     }
 </style>

@@ -17,20 +17,20 @@
                     </no-ssr>
                 </div>
             </div>
-            <v-recommend />
+            <!-- <v-recommend /> -->
         </div>
 	</div>
 </template>
 
 <script>
     import article from "~/components/article.vue";
-    import recommend from "~/components/recommend.vue";
+    // import recommend from "~/components/recommend.vue";
     import InfiniteLoading from 'vue-infinite-loading';
 
 	export default {
         components: {
             vArticle: article,
-            vRecommend: recommend,
+            // vRecommend: recommend,
             InfiniteLoading: InfiniteLoading
 		},
         data() {
@@ -321,7 +321,7 @@
             },
             infiniteScroll($state) {
                 let _this = this;
-                
+
                 setTimeout(() => {
                     let data = [{
                         id: 'teach',
@@ -458,7 +458,7 @@
                         date: '109.02.20',
                         link: '/'
                     }]
-                    
+
                     if(_this.page <= 3) {
                         _this.page += 1;
 
@@ -506,7 +506,7 @@
             padding: 0px;
         }
 
-        .content {            
+        .content {
             max-width: 1280px;
             margin: auto;
             text-align: center;

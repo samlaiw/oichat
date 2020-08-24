@@ -38,13 +38,13 @@
         },
         mounted() {
             let _this = this;
-            
+
             _this.$refs.swiper.$el.onmouseover = function() {
                 let target = this;
-                
+
                 target.swiper.autoplay.stop();
             };
-            
+
             _this.$refs.swiper.$el.onmouseout = function() {
                 let target = this;
 

@@ -40,7 +40,7 @@
         methods:{
              navbar() {
                 let _this = this;
-                
+
                 _this.$store.commit('navbar/close');
             }
         }
@@ -49,7 +49,7 @@
 
 <style lang="scss">
     @import '~/assets/css/global/config.scss';
-    
+
     .navbar {
         opacity: 0;
         position: fixed;

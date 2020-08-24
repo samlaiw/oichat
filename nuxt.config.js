@@ -27,7 +27,7 @@ module.exports = {
 		]
 	},
 	/* Customize the progress-bar color */
-	loading: { 
+	loading: {
 		color: "#5e0b75",
 		height: "2px"
 	},
@@ -55,7 +55,9 @@ module.exports = {
 		"@nuxtjs/component-cache",
 		"nuxt-user-agent",
 		"cookie-universal-nuxt",
-		"nuxt-lazy-load"
+    "nuxt-lazy-load",
+    // 'bootstrap-vue/nuxt',
+    '@nuxtjs/vuetify',
 	],
 	router: {
 		extendRoutes (routes, resolve) {
@@ -67,9 +69,21 @@ module.exports = {
 	},
 	// "google-adsense": {
 	// 	id: "ca-pub-6958179296039634"
-	// },
+  // },
+  buildModules: [
+    // Simple usage
+    '@nuxtjs/vuetify',
+
+    // With options
+    ['@nuxtjs/vuetify', { /* module options */ }]
+  ],
+  // bootstrapVue: {
+  //   bootstrapCSS: false,
+  //   bootstrapVueCSS: false,
+  //   icons: true
+  // },
 	fontawesome: {
-		component: 'fa', 
+		component: 'fa',
 		imports: [
 			{
 				set: '@fortawesome/free-solid-svg-icons',
