@@ -74,14 +74,14 @@
                 align-items: center;
 
                 @media screen and (max-width: 1024px) {
-                    width: 20%;
+                    width: 12%;
                     margin-right:20px;
                 }
             }
 
             .menu-list {
                 float: left;
-                width: 50%;
+                width: 60%;
                 height: 65px;
                 line-height: 65px;
 
@@ -106,7 +106,7 @@
                 }
             }
             .search-content{
-              float:left;
+              float: left;
               width: 20%;
               height:65px;
               text-align: center;
@@ -123,13 +123,15 @@
                 border-width: 0px;
                 margin-top: 10px;
                  outline: none;
+                background-color: white;
+                margin-right: 50px;
 
               }
             }
 
             .login-content {
                 float: right;
-                width: 13%;
+                width: 10%;
                 height: 65px;
                 line-height: 65px;
 

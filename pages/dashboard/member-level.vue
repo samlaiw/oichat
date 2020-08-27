@@ -1,5 +1,43 @@
 <template>
-  <section class="container">
+ <v-form>
+    <v-container>
+      <v-row>
+        <v-col cols="2" sm="2" md="2">
+          <v-text-field
+          v-for="(member1 ,index) in  member" :key="index"
+            label="Solo"
+            solo
+            v-model="member1.level"
+          ></v-text-field>
+        </v-col>
+        <v-col cols="2" sm="2" md="2">
+          <v-text-field
+          v-for="(member1 ,index) in  member" :key="index"
+            label="Solo"
+            solo
+            v-model="member1.title"
+          ></v-text-field>
+        </v-col>
+        <v-col cols="2" sm="2" md="2">
+          <v-text-field
+          v-for="(member1 ,index) in  member" :key="index"
+            label="Solo"
+            solo
+            v-model="member1.number1"
+          ></v-text-field>
+        </v-col>
+        <v-col cols="2" sm="2" md="2">
+          <v-text-field
+          v-for="(member1 ,index) in  member" :key="index"
+            label="Solo"
+            solo
+            v-model="member1.number2"
+          ></v-text-field>
+        </v-col>
+      </v-row>
+    </v-container>
+ </v-form>
+  <!-- <section class="container">
     <div class="level-title">
       <div class="LV">LV等級</div>
       <div class="nickname">稱號</div>
@@ -13,9 +51,6 @@
       <input type="text" v-model="clickedItems.number2">
       <button @click="() => handleClick(member)">增加</button>
       <div v-for="(member1 ,index) in  member" :key="index">
-        <!-- <li >
-          <span>{{member1.level}}</span>
-        </li> -->
         <input type="text" v-model="member1.level">
         <input type="text" v-model="member1.title">
         <input type="text" v-model="member1.number1">
@@ -25,7 +60,7 @@
         <button @click="() => deleteClick(index)">刪除</button>
       </div>
     </div>
-  </section>
+  </section> -->
 </template>
 <script>
   export default {

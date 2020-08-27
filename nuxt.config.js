@@ -33,7 +33,7 @@ module.exports = {
 	},
 	/* Global CSS */
 	css: [
-		"swiper/css/swiper.css",
+		"swiper/swiper-bundle.css",
 		"normalize.css",
 		"./assets/css/global/transition.scss"
 	],
@@ -56,8 +56,6 @@ module.exports = {
 		"nuxt-user-agent",
 		"cookie-universal-nuxt",
     "nuxt-lazy-load",
-    // 'bootstrap-vue/nuxt',
-    '@nuxtjs/vuetify',
 	],
 	router: {
 		extendRoutes (routes, resolve) {
@@ -72,10 +70,7 @@ module.exports = {
   // },
   buildModules: [
     // Simple usage
-    '@nuxtjs/vuetify',
-
-    // With options
-    ['@nuxtjs/vuetify', { /* module options */ }]
+    '@nuxtjs/vuetify'
   ],
   // bootstrapVue: {
   //   bootstrapCSS: false,

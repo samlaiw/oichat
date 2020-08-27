@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row  class="point">
+    <v-row>
       <v-col>
         <v-card>
           <v-card-title>
@@ -9,7 +9,23 @@
             <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
             </v-text-field>
           </v-card-title>
-          <v-data-table :headers="headers" :items="desserts" :search="search"></v-data-table>
+          <v-data-table :headers="members" :items="desserts"  :single-expand="singleExpand"
+            :expanded.sync="expanded" item-key="article" show-expand class="elevation-1" :search="search">
+            <template   v-slot:expanded-item="{ headers}" >
+              <td :colspan="headers.length">
+                <v-col>
+                <v-btn text small>瀏覽文章</v-btn>
+                <v-btn text small>編輯文章</v-btn>
+                <v-btn text small>設為精選</v-btn>
+                <v-btn text small>設為活動</v-btn>
+                <v-btn text small>複製文章</v-btn>
+                <v-btn text small>還原為草稿</v-btn>
+                <v-btn text small>停用留言</v-btn>
+                <v-btn text small>刪除文章</v-btn>
+                </v-col>
+              </td>
+            </template>
+          </v-data-table>
         </v-card>
       </v-col>
     </v-row>
@@ -23,61 +39,70 @@
         search: '',
         dialog: false,
 
-        headers: [{
+        expanded: [],
+        singleExpand: true,
+
+        members: [{
             text: '文章圖片',
             align: 'center',
             sortable: false,
-            value: 'name',
+            value: 'photo',
           },
           {
             text: '文章標題',
-            value: 'time',
+            value: 'article',
             align: 'center',
           },
           {
             text: '日期',
-            value: 'fat',
+            value: 'date',
             align: 'center',
           },
           {
             text: '讚數',
-            value: 'fat',
+            value: 'great',
             align: 'center',
           },
           {
             text: '瀏覽數',
-            value: 'fat',
+            value: 'view',
             align: 'center',
           },
           {
             text: '編輯',
-            value: 'edit',
-            align: 'center',
+            value: 'data-table-expand',
+            width: '100px',
+            align: 'center'
+
           }
         ],
         desserts: [{
-            name: '記得到兌換中心兌換您的積分獎勵喔',
-            time: '2020/08/21',
-            fat: 6.0,
-            iron: '1%',
+            photo: 'sample',
+            article: 'aaa',
+            date: '2020/08/24',
+            great: '999',
+            view: '999'
           },
           {
-            name: '記得到兌換中心兌換您的積分獎勵喔',
-            time: '2020/08/21',
-            fat: 9.0,
-            iron: '1%',
+            photo: 'sample',
+            article: 'bbb',
+            date: '2020/08/24',
+            great: '999',
+            view: '999'
           },
           {
-            name: '記得到兌換中心兌換您的積分獎勵喔',
-            time: '2020/08/21',
-            fat: 16.0,
-            iron: '7%',
+            photo: 'sample',
+            article: 'ccc',
+            date: '2020/08/24',
+            great: '999',
+            view: '999'
           },
           {
-            name: '記得到兌換中心兌換您的積分獎勵喔',
-            time: '2020/08/21',
-            fat: 3.7,
-            iron: '8%',
+            photo: 'sample',
+            article: 'ddd',
+            date: '2020/08/24',
+            great: '999',
+            view: '999'
           }
         ],
       }

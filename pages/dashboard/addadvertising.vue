@@ -1,90 +1,68 @@
 <template>
-  <section class="container">
-    <div class="header">
-      <div class="title">上架編輯</div>
-      <div class="right-contet">
-        <div class="adm">管理者：oic000</div>
-        <div class="logout">登出</div>
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-title">獎勵內容</div>
-      <div class="box-table">
-        <p>獎勵圖片</p>
-        <input type="text">
-        <p>獎勵描述</p>
-        <input type="text">
-        <p>所需積分</p>
-        <input type="text">
-        <p>獎勵等級</p>
-        <input type="text">
-      </div>
-      <div class="box-button">
-        <button>
-          aaa
-        </button>
-        <button>
-          bbb
-        </button>
-      </div>
-    </div>
-  </section>
+  <v-col>
+    <v-form ref="form" v-model="valid" lazy-validation reverse>
+      <v-file-input label="請點擊上傳廣告圖片" prepend-icon="" append-outer-icon="mdi-camera"></v-file-input>
+
+      <v-text-field v-model="name" :counter="100" :rules="nameRules" label="請輸入廣告描述" required></v-text-field>
+
+      <v-select v-model="select" :items="items" :rules="[v => !!v || 'Item is required']" label="請選擇廣告版位" required>
+      </v-select>
+
+      <v-checkbox v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" label="確認無誤?" required>
+      </v-checkbox>
+      <v-row align="center" justify="center">
+        <v-btn class="mr-4" color="warning" @click="resetValidation">
+          預覽廣告
+        </v-btn>
+
+        <v-btn color="error" class="mr-4" @click="reset">
+          重新輸入
+        </v-btn>
+
+        <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
+          確認送出
+        </v-btn>
+      </v-row>
+    </v-form>
+  </v-col>
 </template>
 
 <script>
   export default {
     layout: 'dashboard',
-    components: {
+    data: () => ({
+      valid: true,
+      name: '',
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 100) || '描述需小於100字',
+      ],
+      select: null,
+      items: [
+        '首頁上方AD (1200*600)',
+        '首頁下方AD (1200*600)',
+        '首頁左方AD (1200*600)',
+        '首頁右方AD (1200*600)',
+      ],
+      checkbox: false,
+    }),
 
-    }
+    methods: {
+      validate() {
+        this.$refs.form.validate()
+      },
+      reset() {
+        this.$refs.form.reset()
+      },
+      resetValidation() {
+        this.$refs.form.resetValidation()
+      },
+    },
   }
 
 </script>
 
 <style lang="scss">
   @import '~/assets/css/global/config.scss';
-
-  .header {
-    width: calc(100% - 250px);
-    margin-left: 250px;
-    background-color: #a7a7a7;
-
-    .title {
-      display: inline-block;
-      font-size: 30px;
-      line-height: 65px;
-    }
-
-    .right-contet {
-      float: right;
-
-      .adm {
-        display: inline-block;
-        line-height: 65px;
-        margin: 0px 15px;
-      }
-
-      .logout {
-        display: inline-block;
-        border: 1px solid;
-        border-radius: 5px;
-        font-size: 20px;
-        margin: 0px 15px;
-        padding: 5px;
-        cursor: pointer;
-      }
-    }
-  }
-
-  .box {
-    width: calc(100% - 250px);
-    margin-left: 250px;
-
-    .box-title{
-      display: inline-block;
-      font-size: 30px;
-      line-height: 65px;
-    }
-  }
 
 </style>

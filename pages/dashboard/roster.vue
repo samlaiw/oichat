@@ -4,9 +4,7 @@
       <v-col>
         <v-card>
           <v-card-title>
-            <v-text>
               會員人數:88888
-            </v-text>
             <v-spacer>
               <v-btn color="primary" dark @click.stop="dialog = true" height="25px">
                 查看每日數據

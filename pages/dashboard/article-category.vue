@@ -1,65 +1,51 @@
 <template>
   <v-container>
-    <v-row  class="point" align="center">
-      <v-col cols="12" justify-center align="center">
-        <v-dialog v-model="dialog" persistent fullscreen>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn x-large color="primary" dark v-bind="attrs" v-on="on">
-              發表文章
-            </v-btn>
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="headline">User Profile</span>
-            </v-card-title>
-            <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field label="Legal first name*" required></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field label="Legal middle name" hint="example of helper text only on focus"></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field label="Legal last name*" hint="example of persistent helper text" persistent-hint
-                      required></v-text-field>
-                  </v-col>
-                  <v-col cols="12">
-                    <v-text-field label="Email*" required></v-text-field>
-                  </v-col>
-                  <v-col cols="12">
-                    <v-text-field label="Password*" type="password" required></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6">
-                    <v-select :items="['0-17', '18-29', '30-54', '54+']" label="Age*" required></v-select>
-                  </v-col>
-                  <v-col cols="12" sm="6">
-                    <v-autocomplete
-                      :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                      label="Interests" multiple></v-autocomplete>
-                  </v-col>
-                </v-row>
-              </v-container>
-              <small>*indicates required field</small>
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
-              <v-btn color="blue darken-1" text @click="dialog = false">Save</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </v-col>
+    <v-row>
       <v-col>
         <v-card>
           <v-card-title>
-            文章類別:5
-            <v-spacer></v-spacer>
+            文章列表:5
+            <v-spacer>
+              <v-btn color="primary" dark @click.stop="dialog = true" height="25px">
+                新增類別
+              </v-btn>
+              <v-dialog v-model="dialog" max-width="290" eager>
+                <v-card height="100%">
+                  <v-card-title class="headline">Use Google's location service?</v-card-title>
+
+                  <v-card-text>
+                    Let Google help apps determine location. This means sending anonymous location data to Google, even
+                    when no apps are running.
+                  </v-card-text>
+
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+
+                    <v-btn color="green darken-1" text @click="dialog = false">
+                      Disagree
+                    </v-btn>
+
+                    <v-btn color="green darken-1" text @click="dialog = false">
+                      Agree
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </v-spacer>
             <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
             </v-text-field>
           </v-card-title>
-          <v-data-table :headers="headers" :items="desserts" :search="search"></v-data-table>
+          <v-data-table :headers="memebers" :items="desserts"  :single-expand="singleExpand"
+            :expanded.sync="expanded" item-key="name" show-expand class="elevation-1" :search="search">
+            <template   v-slot:expanded-item="{ headers}" >
+              <td :colspan="headers.length">
+                <v-col>
+                <v-btn text small>修改標題</v-btn>
+                <v-btn text small>刪除類別</v-btn>
+                </v-col>
+              </td>
+            </template>
+          </v-data-table>
         </v-card>
       </v-col>
     </v-row>
@@ -73,7 +59,10 @@
         search: '',
         dialog: false,
 
-        headers: [{
+        expanded: [],
+        singleExpand: true,
+
+        memebers: [{
             text: '文章類別',
             align: 'center',
             sortable: false,
@@ -81,43 +70,41 @@
           },
           {
             text: '文章篇數',
-            value: 'time',
+            value: 'number',
             align: 'center',
           },
           {
             text: '建立日期',
-            value: 'fat',
+            value: 'date',
             align: 'center',
           },
           {
             text: '編輯',
-            value: 'edit',
-            align: 'center',
+            value: 'data-table-expand',
+            width: '100px',
+            align: 'center'
+
           }
         ],
         desserts: [{
-            name: '記得到兌換中心兌換您的積分獎勵喔',
-            time: '2020/08/21',
-            fat: 6.0,
-            iron: '1%',
+            name: 'sample1',
+            number: 'aaa',
+            date: '2020/08/24',
           },
           {
-            name: '記得到兌換中心兌換您的積分獎勵喔',
-            time: '2020/08/21',
-            fat: 9.0,
-            iron: '1%',
+            name: 'sample2',
+            number: 'bbb',
+            date: '2020/08/24',
           },
           {
-            name: '記得到兌換中心兌換您的積分獎勵喔',
-            time: '2020/08/21',
-            fat: 16.0,
-            iron: '7%',
+            name: 'sample3',
+            number: 'ccc',
+            date: '2020/08/24',
           },
           {
-            name: '記得到兌換中心兌換您的積分獎勵喔',
-            time: '2020/08/21',
-            fat: 3.7,
-            iron: '8%',
+            name: 'sample4',
+            number: 'ddd',
+            date: '2020/08/24',
           }
         ],
       }

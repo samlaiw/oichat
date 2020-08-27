@@ -24,7 +24,17 @@
             <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
             </v-text-field>
           </v-card-title>
-          <v-data-table :headers="headers" :items="desserts" :search="search"></v-data-table>
+          <v-data-table :headers="memebers" :items="desserts"  :single-expand="singleExpand"
+            :expanded.sync="expanded" item-key="title" show-expand class="elevation-1" :search="search">
+            <template   v-slot:expanded-item="{ headers}" >
+              <td :colspan="headers.length">
+                <v-col>
+                <v-btn text small>瀏覽留言</v-btn>
+                <v-btn text small>刪除留言</v-btn>
+                </v-col>
+              </td>
+            </template>
+          </v-data-table>
         </v-card>
       </v-col>
     </v-row>
@@ -38,6 +48,8 @@
         search: '',
 
         dialog: false,
+        expanded: [],
+        singleExpand: true,
 
         items: [{
             title: 'Click Me'
@@ -53,57 +65,72 @@
           },
         ],
 
-        headers: [{
-            text: '留言板塊',
+        memebers: [{
+            text: '留言版塊',
             align: 'center',
             sortable: false,
-            value: 'name',
+            value: 'title',
           },
           {
             text: '留言內容',
-            value: 'time',
+            value: 'content',
             align: 'center',
           },
           {
             text: '日期',
-            value: 'time',
+            value: 'date',
             align: 'center',
           },
           {
             text: '瀏覽數',
-            value: 'time',
+            value: 'number',
             align: 'center',
           },
           {
             text: '編輯',
-            value: 'fat',
-            align: 'center',
+            value: 'data-table-expand',
+            width: '100px',
+            align: 'center'
           }
+
+
         ],
         desserts: [{
-            name: '記得到兌換中心兌換您的積分獎勵喔',
-            time: '2020/08/21',
-            fat: 6.0,
-            iron: '1%',
+            title: '二手用品交易',
+            content:'aaa',
+            number: '999',
+            date: '2020/08/21',
+            login: '2020/08/21 12:00'
           },
           {
-            name: '記得到兌換中心兌換您的積分獎勵喔',
-            time: '2020/08/21',
-            fat: 9.0,
-            iron: '1%',
+            title: 'sample1',
+            content:'bbb',
+            number: '999',
+            date: '2020/08/21',
+            login: '2020/08/22 12:00'
           },
           {
-            name: '記得到兌換中心兌換您的積分獎勵喔',
-            time: '2020/08/21',
-            fat: 16.0,
-            iron: '7%',
+            title: 'sample2',
+            content:'ccc',
+            number: '999',
+            date: '2020/08/21',
+            login: '2020/08/21 12:00'
           },
           {
-            name: '記得到兌換中心兌換您的積分獎勵喔',
-            time: '2020/08/21',
-            fat: 3.7,
-            iron: '8%',
+            title: 'sample3',
+            content:'ddd',
+            number: '999',
+            date: '2020/08/21',
+            login: '2020/08/21 12:00'
+          },
+          {
+            title: 'sample4',
+            content:'eee',
+            number: '999',
+            date: '2020/08/21',
+            login: '2020/08/21 12:00'
           }
+
         ],
       }
     },

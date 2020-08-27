@@ -31,7 +31,7 @@
                 </v-form>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" link to="roster" @click="title = '會員名單'">登入</v-btn>
+                <v-btn color="primary" link to="roster" >登入</v-btn>
               </v-card-actions>
           </v-col>
         </v-row>

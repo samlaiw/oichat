@@ -1,65 +1,51 @@
 <template>
   <v-container>
-    <v-row  class="point" align="center">
-      <v-col cols="12" justify-center align="center">
-        <v-dialog v-model="dialog" persistent fullscreen>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn x-large color="primary" dark v-bind="attrs" v-on="on">
-              新增訊息
-            </v-btn>
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="headline">User Profile</span>
-            </v-card-title>
-            <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field label="Legal first name*" required></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field label="Legal middle name" hint="example of helper text only on focus"></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field label="Legal last name*" hint="example of persistent helper text" persistent-hint
-                      required></v-text-field>
-                  </v-col>
-                  <v-col cols="12">
-                    <v-text-field label="Email*" required></v-text-field>
-                  </v-col>
-                  <v-col cols="12">
-                    <v-text-field label="Password*" type="password" required></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6">
-                    <v-select :items="['0-17', '18-29', '30-54', '54+']" label="Age*" required></v-select>
-                  </v-col>
-                  <v-col cols="12" sm="6">
-                    <v-autocomplete
-                      :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                      label="Interests" multiple></v-autocomplete>
-                  </v-col>
-                </v-row>
-              </v-container>
-              <small>*indicates required field</small>
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
-              <v-btn color="blue darken-1" text @click="dialog = false">Save</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </v-col>
+    <v-row >
       <v-col>
         <v-card>
           <v-card-title>
             快訊列表
-            <v-spacer></v-spacer>
+            <v-spacer>
+              <v-btn color="primary" dark @click.stop="dialog = true" height="25px">
+                新增訊息
+              </v-btn>
+              <v-dialog v-model="dialog" max-width="290" eager>
+                <v-card height="100%">
+                  <v-card-title class="headline">Use Google's location service?</v-card-title>
+
+                  <v-card-text>
+                    Let Google help apps determine location. This means sending anonymous location data to Google, even
+                    when no apps are running.
+                  </v-card-text>
+
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+
+                    <v-btn color="green darken-1" text @click="dialog = false">
+                      Disagree
+                    </v-btn>
+
+                    <v-btn color="green darken-1" text @click="dialog = false">
+                      Agree
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </v-spacer>
             <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details>
             </v-text-field>
           </v-card-title>
-          <v-data-table :headers="headers" :items="desserts" :search="search"></v-data-table>
+          <v-data-table :headers="memebers" :items="desserts"  :single-expand="singleExpand"
+            :expanded.sync="expanded" item-key="name" show-expand class="elevation-1" :search="search">
+            <template   v-slot:expanded-item="{ headers}" >
+              <td :colspan="headers.length">
+                <v-col>
+                <v-btn text small>修改訊息</v-btn>
+                <v-btn text small>刪除訊息</v-btn>
+                </v-col>
+              </td>
+            </template>
+          </v-data-table>
         </v-card>
       </v-col>
     </v-row>
@@ -72,9 +58,11 @@
       return {
         search: '',
         dialog: false,
+        expanded: [],
+        singleExpand: true,
 
-        headers: [{
-            text: '訊息內容',
+        memebers: [{
+            text: '快訊名稱',
             align: 'center',
             sortable: false,
             value: 'name',
@@ -86,33 +74,27 @@
           },
           {
             text: '編輯',
-            value: 'fat',
-            align: 'center',
+            value: 'data-table-expand',
+            width: '100px',
+            align: 'center'
+
           }
         ],
         desserts: [{
-            name: '記得到兌換中心兌換您的積分獎勵喔',
+            name: '記得到兌換中心兌換您的積分獎勵喔1',
             time: '2020/08/21',
-            fat: 6.0,
-            iron: '1%',
           },
           {
-            name: '記得到兌換中心兌換您的積分獎勵喔',
+            name: '記得到兌換中心兌換您的積分獎勵喔2',
             time: '2020/08/21',
-            fat: 9.0,
-            iron: '1%',
           },
           {
-            name: '記得到兌換中心兌換您的積分獎勵喔',
+            name: '記得到兌換中心兌換您的積分獎勵喔3',
             time: '2020/08/21',
-            fat: 16.0,
-            iron: '7%',
           },
           {
-            name: '記得到兌換中心兌換您的積分獎勵喔',
+            name: '記得到兌換中心兌換您的積分獎勵喔4',
             time: '2020/08/21',
-            fat: 3.7,
-            iron: '8%',
           }
         ],
       }

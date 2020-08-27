@@ -4,22 +4,29 @@
       <v-col>
         <v-card>
           <v-card-title>
-            <v-text>
-              所有回覆
-            </v-text>
+            <span>
+            全部獎勵:16
+            </span>
+            <span>
+            白銀獎勵:8
+            </span>
+            <span>
+            黃金獎勵:8
+            </span>
             <v-spacer>
             </v-spacer>
             <v-text-field v-model="search" append-icon="mdi-magnify" label="搜尋" single-line hide-details>
             </v-text-field>
           </v-card-title>
           <v-data-table :headers="memebers" :items="desserts"  :single-expand="singleExpand"
-            :expanded.sync="expanded" item-key="account" show-expand class="elevation-1" :search="search">
-            <template   v-slot:expanded-item="{ headers, item }" >
+            :expanded.sync="expanded" item-key="article" show-expand class="elevation-1" :search="search">
+            <template   v-slot:expanded-item="{ headers}" >
               <td :colspan="headers.length">
-                <span>留言會員:{{item.account}}</span>
                 <v-col>
-                <v-btn text small>瀏覽留言</v-btn>
-                <v-btn text small>刪除留言</v-btn>
+                <v-btn text small>編輯獎勵</v-btn>
+                <v-btn text small>獎勵發佈</v-btn>
+                <v-btn text small>獎勵下架</v-btn>
+                <v-btn text small>獎勵刪除</v-btn>
                 </v-col>
               </td>
             </template>
@@ -42,28 +49,28 @@
         singleExpand: true,
 
         memebers: [{
-            text: '留言文章',
+            text: '獎勵圖片',
             align: 'center',
             sortable: false,
             value: 'article',
           },
           {
-            text: '留言內容',
+            text: '獎勵描述',
             value: 'content',
             align: 'center',
           },
           {
-            text: '會員帳號',
+            text: '所需積分',
             value: 'account',
             align: 'center',
           },
           {
-            text: '日期',
+            text: '獎勵等級',
             value: 'date',
             align: 'center',
           },
           {
-            text: '按讚數',
+            text: '日期',
             value: 'GREAT',
             align: 'center',
           },
@@ -78,43 +85,43 @@
 
         ],
         desserts: [{
-            article: 'STEAK',
-            content: '讚',
-            account: 'AAA',
-            date: '2020/08/21',
-            GREAT: '999',
+            article: 'sapmle1',
+            content: '兒童英語讀本',
+            account: '999',
+            date: '白銀',
+            GREAT: '2020/08/21',
             login: '2020/08/21 12:00'
           },
           {
-            article: 'STEAK',
-            content: '棒',
-            account: 'BBB',
-            date: '2020/08/22',
-            GREAT: '999',
+            article: 'sapmle2',
+            content: '免費英文課程1堂',
+            account: '999',
+            date: '白銀',
+            GREAT: '2020/08/21',
             login: '2020/08/22 12:00'
           },
           {
-            article: 'STEAK',
-            content: '太神了',
-            account: 'CCC',
-            date: '2020/08/23',
-            GREAT: '999',
+            article: 'sapmle3',
+            content: '免費英文課程1堂',
+            account: '999',
+            date: '黃金',
+            GREAT: '2020/08/21',
             login: '2020/08/21 12:00'
           },
           {
-            article: 'STEAK',
-            content: '猛',
-            account: 'DDD',
-            date: '2020/08/24',
-            GREAT: '999',
+            article: 'sapmle4',
+            content: '免費英文課程1堂',
+            account: '999',
+            date: '白銀',
+            GREAT: '2020/08/21',
             login: '2020/08/21 12:00'
           },
           {
-            article: 'STEAK',
-            content: '厲害',
-            account: 'EEE',
-            date: '2020/08/25',
-            GREAT: '999',
+            article: 'sapmle5',
+            content: '免費英文課程1堂',
+            account: '999',
+            date: '黃金',
+            GREAT: '2020/08/21',
             login: '2020/08/21 12:00'
           }
 
