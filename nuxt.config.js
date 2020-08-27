@@ -1,6 +1,6 @@
 
 const pkg = require("./package");
-const ImageminPlugin = require("imagemin-webpack-plugin").default;
+let ImageminPlugin = require('imagemin-webpack-plugin').default
 
 module.exports = {
 	mode: 'universal',
