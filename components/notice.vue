@@ -37,13 +37,13 @@
         },
         mounted() {
             let _this = this;
-            
+
             _this.$refs.swiper.$el.onmouseover = function() {
                 let target = this;
-                
+
                 target.swiper.autoplay.stop();
             };
-            
+
             _this.$refs.swiper.$el.onmouseout = function() {
                 let target = this;
 
@@ -55,7 +55,7 @@
 
 <style lang="scss">
     @import '~/assets/css/global/config.scss';
-    
+
     .notice {
         max-width: 1280px;
         margin: auto;
@@ -70,9 +70,9 @@
             margin: auto;
 
             @media screen and (max-width: 1024px) {
-                flex-wrap: wrap;        
+                flex-wrap: wrap;
             }
-            
+
             .title {
                 flex: 1;
                 text-align: right;

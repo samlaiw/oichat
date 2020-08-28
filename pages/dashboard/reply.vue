@@ -2,7 +2,6 @@
   <v-container justify="center">
     <v-row>
       <v-col>
-        <v-card>
           <v-card-title>
             <v-text>
               所有回覆
@@ -24,7 +23,6 @@
               </td>
             </template>
           </v-data-table>
-        </v-card>
       </v-col>
     </v-row>
   </v-container>

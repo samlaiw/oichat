@@ -2,7 +2,6 @@
   <v-container>
     <v-row >
       <v-col>
-        <v-card>
           <v-card-title>
             快訊列表
             <v-spacer>
@@ -46,7 +45,6 @@
               </td>
             </template>
           </v-data-table>
-        </v-card>
       </v-col>
     </v-row>
   </v-container>

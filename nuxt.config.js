@@ -72,11 +72,6 @@ module.exports = {
     // Simple usage
     '@nuxtjs/vuetify'
   ],
-  // bootstrapVue: {
-  //   bootstrapCSS: false,
-  //   bootstrapVueCSS: false,
-  //   icons: true
-  // },
 	fontawesome: {
 		component: 'fa',
 		imports: [

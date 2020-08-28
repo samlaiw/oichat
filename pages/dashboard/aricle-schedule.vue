@@ -2,7 +2,6 @@
   <v-container>
     <v-row>
       <v-col>
-        <v-card>
           <v-card-title>
             排程篇數:8888888
             <v-spacer>
@@ -48,7 +47,6 @@
               </td>
             </template>
           </v-data-table>
-        </v-card>
       </v-col>
     </v-row>
   </v-container>

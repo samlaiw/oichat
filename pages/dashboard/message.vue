@@ -2,7 +2,6 @@
   <v-container justify="center">
     <v-row class="point">
       <v-col>
-        <v-card>
           <v-card-title>
               <v-text>
                 留言篇數:88888
@@ -35,7 +34,6 @@
               </td>
             </template>
           </v-data-table>
-        </v-card>
       </v-col>
     </v-row>
   </v-container>

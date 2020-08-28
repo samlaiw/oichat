@@ -2,7 +2,6 @@
   <v-container>
     <v-row>
       <v-col>
-        <v-card>
           <v-card-title>
             文章篇數:88888
             <v-spacer></v-spacer>
@@ -26,7 +25,6 @@
               </td>
             </template>
           </v-data-table>
-        </v-card>
       </v-col>
     </v-row>
   </v-container>
